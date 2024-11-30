@@ -70,10 +70,11 @@ form button:hover {
 }
 
 .todo {
+  border-radius: 50px;
   margin: 0.5rem;
   background: white;
-  color: black;
-  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.81);
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,6 +82,10 @@ form button:hover {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
+  -webkit-border-radius: ;
+  -moz-border-radius: ;
+  -ms-border-radius: ;
+  -o-border-radius: ;
 }
 
 .todo li {
@@ -97,6 +102,43 @@ form button:hover {
   font-size: 1rem;
 }
 
+.trash-btn:hover {
+  background-color: #cb5f5f;
+}
+
+.complete-btn {
+  background: rgb(73, 204, 73);
+}
+
+.bi-trash-fill,
+.bi-check-circle-fill {
+  pointer-events: none;
+}
+
+.todo-item {
+  padding: 0rem 0.7rem;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+.slide {
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
 .select {
   margin: 1rem;
   position: relative;
@@ -110,12 +152,7 @@ form button:hover {
 
 select {
   color: #c72522;
-  width: 8rem;
+  width: 10rem;
   cursor: pointer;
   padding: 1rem;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
 }
