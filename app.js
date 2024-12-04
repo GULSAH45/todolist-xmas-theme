@@ -1,12 +1,12 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-const filterOption = document.querySelector(".filter-todo");
+const filterOption = document.querySelector("#filter-todo");
 
 document.addEventListener("DOMContentLoaded", getLocalTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
-filterOption.addEventListener("click", filterTodo);
+filterOption.addEventListener("change", filterTodo);
 
 function addTodo(event) {
   event.preventDefault();
@@ -39,7 +39,7 @@ function addTodo(event) {
 function deleteCheck(e) {
   const item = e.target;
 
-  if (item.classList[0] === "trash-btn") {
+  if (item.classList.contains("trash-btn")) {
     const todo = item.parentElement;
     todo.classList.add("slide");
 
@@ -48,15 +48,14 @@ function deleteCheck(e) {
     todo.addEventListener("transitionend", function () {
       todo.remove();
     });
-  }
-  if (item.classList[0] === "complete-btn") {
+  } else if (item.classList.contains("complete-btn")) {
     const todo = item.parentElement;
     todo.classList.toggle("completed");
   }
 }
 
 function filterTodo(e) {
-  const todos = todoList.children;
+  const todos = Array.from(todoList.children);
   todos.forEach(function (todo) {
     switch (e.target.value) {
       case "all":
@@ -70,7 +69,7 @@ function filterTodo(e) {
         }
         break;
       case "incompleted":
-        if (!todo.classList.contains("incompleted")) {
+        if (!todo.classList.contains("completed")) {
           todo.style.display = "flex";
         } else {
           todo.style.display = "none";
@@ -130,6 +129,6 @@ function removeLocalTodos(todo) {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
   const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex), 1);
+  todos.splice(todos.indexOf(todoIndex), -1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
