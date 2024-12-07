@@ -31,6 +31,7 @@ form {
 form input,
 form button {
   padding: 0.7rem;
+  margin: 10px;
   font-size: 1.2rem;
   border: none;
   border-radius: 50px;
@@ -72,11 +73,11 @@ form button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.1s ease;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
 }
 
 .todo li {
