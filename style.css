@@ -23,7 +23,7 @@ header {
 
 header,
 form {
-  min-height: 17vh;
+  /* min-height: 17vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,11 +57,17 @@ form button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   min-width: 30%;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .todo {
@@ -106,7 +112,6 @@ form button:hover {
 .bi-check-circle-fill {
   pointer-events: none;
 }
-
 .todo-item {
   padding: 0rem 0.7rem;
 }
@@ -117,10 +122,8 @@ form button:hover {
 }
 .slide {
   transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  -moz-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
 select {

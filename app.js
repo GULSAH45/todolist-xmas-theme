@@ -43,7 +43,7 @@ function deleteCheck(e) {
     const todo = item.parentElement;
     todo.classList.add("slide");
 
-    removeLocalTodos(todo);
+    removeLocalTodos(todo.children[0].innerText);
 
     todo.addEventListener("transitionend", function () {
       todo.remove();
@@ -121,14 +121,14 @@ function getLocalTodos() {
   });
 }
 
-function removeLocalTodos(todo) {
+function removeLocalTodos(todoText) {
   let todos;
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
-  const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex), -1);
+  const todoIndex = todos.children[0].innerText(todoText);
+  todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
